@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfluencePWA", "InfluencePWA\InfluencePWA.csproj", "{167C87B5-180F-4754-A875-E1C4F298F8C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{167C87B5-180F-4754-A875-E1C4F298F8C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{167C87B5-180F-4754-A875-E1C4F298F8C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{167C87B5-180F-4754-A875-E1C4F298F8C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{167C87B5-180F-4754-A875-E1C4F298F8C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6ABE804-512A-48F0-9106-640F5C7ACFD9}
+	EndGlobalSection
+EndGlobal
