@@ -10,6 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { QuoteDataComponent } from './quote-data/quote-data.component';
+import { PrincipleEditComponent } from './quote-data/principle-edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import { QuoteDataComponent } from './quote-data/quote-data.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    QuoteDataComponent
+    QuoteDataComponent,
+    PrincipleEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,7 +35,12 @@ import { QuoteDataComponent } from './quote-data/quote-data.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'quote-data', component: QuoteDataComponent },
-    ])
+      { path: 'quote-data', component: PrincipleEditComponent },
+    ]),
+
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

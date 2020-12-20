@@ -1,0 +1,134 @@
+<div class="principle-edit">
+  <h1>{{title}}</h1>
+
+  <p *ngIf="this.id && !principle"><em>Loading...</em></p>
+
+  <div class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div *ngIf="form.invalid && form.errors?.isDupePrinciple"
+         class="alert alert-danger">
+      <strong>ERROR</strong>:
+      A principle with the same <i>law</i>, <i>title</i>,
+      <i>description</i> and <i>type</i> already exists.
+    </div>
+
+    <div class="form-group">
+      <label for="law">Principle number:</label>
+      <br />
+      <input type="text" id="law"
+             formControlName="law" required
+             placeholder="Principle number..."
+             class="form-control" />
+
+      <div *ngIf="hasError('law')"
+           class="invalid-feedback">
+        <div *ngIf="form.get('law').errors?.required">
+          Number is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Principle title:</label>
+      <br />
+      <input type="text" id="title"
+             formControlName="title" required
+             placeholder="Title..."
+             class="form-control" />
+
+      <div *ngIf="hasError('title')"
+           class="invalid-feedback">
+        <div *ngIf="form.get('title').errors?.required">
+          Title is required.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="description">Principle description:</label>
+      <br />
+      <input type="text" id="description"
+             formControlName="description" required
+             placeholder="Description..."
+             class="form-control" />
+
+      <div *ngIf="hasError('description')"
+           class="invalid-feedback">
+        <div *ngIf="form.get('description').errors?.required">
+          Description is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="principleTypeId">Type:</label>
+      <br />
+      <mat-form-field *ngIf="principleTypes">
+        <mat-label>Select a type...</mat-label>
+        <mat-select id="principleTypeId" formControlName="principleTypeId">
+          <mat-option *ngFor="let principleType of principleTypes" [value]="principleType.id">
+            {{principleType.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div *ngIf="hasError('principleTypeId')"
+           class="invalid-feedback">
+        <div *ngIf="form.get('principleTypeId').errors?.required">
+          Please select a type.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group commands">
+      <button *ngIf="id" type="submit"
+              (click)="onSubmit()"
+              [disabled]="form.invalid"
+              class="btn btn-success">
+        Save
+      </button>
+      <button *ngIf="!id" type="submit"
+              (click)="onSubmit()"
+              [disabled]="form.invalid"
+              class="btn btn-success">
+        Create
+      </button>
+      <button type="button"
+              [routerLink]="['/principles']"
+              class="btn btn-default">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Form debug info panel -->
+<div class="card bg-light mb-3">
+  <div class="card-header">Form Debug Info</div>
+  <div class="card-body">
+    <div class="card-text">
+      <div><strong>Form value:</strong></div>
+      <div class="help-block">
+        {{ form.value | json }}
+      </div>
+      <div class="mt-2"><strong>Form status:</strong></div>
+      <div class="help-block">
+        {{ form.status | json }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Form activity log panel -->
+<div class="card bg-light mb-3">
+  <div class="card-header">Form Activity Log</div>
+  <div class="card-body">
+    <div class="card-text">
+      <div class="help-block">
+        <span *ngIf="activityLog"
+              [innerHTML]="activityLog"></span>
+      </div>
+    </div>
+  </div>
+</div>

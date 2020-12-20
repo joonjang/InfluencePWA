@@ -1,1 +1,24 @@
-<p>quote-data works!</p>
+<h1>Principles for Influence</h1>
+
+<p>List of principles to be an influential person</p>
+
+<p *ngIf="!principles"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" [hidden]="!principles">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Law</th>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let principle of principles">
+      <td>{{ principle.id }}</td>
+      <td>{{ principle.law }}</td>
+      <td>{{ principle.title }}</td>
+      <td>{{ principle.description }}</td>
+    </tr>
+  </tbody>
+</table>

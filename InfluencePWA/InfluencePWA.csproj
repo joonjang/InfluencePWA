@@ -33,7 +33,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\angular-material.module.ts" />
+    <None Remove="ClientApp\src\app\base.form.component.ts" />
+    <None Remove="ClientApp\src\app\base.service.ts" />
+    <None Remove="ClientApp\src\app\quote-data\principle-edit.component.ts" />
+    <None Remove="ClientApp\src\app\quote-data\principle.service.ts" />
+    <None Remove="ClientApp\src\app\quote-data\principle.ts" />
+    <None Remove="ClientApp\src\app\quote-data\principleType.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\angular-material.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\base.form.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\base.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\quote-data\principle-edit.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\quote-data\principle.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\quote-data\principle.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\quote-data\principleType.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
