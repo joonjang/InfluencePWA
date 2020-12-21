@@ -31,12 +31,12 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
 
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'quote-data', component: QuoteDataComponent },
-      { path: 'quote-data', component: PrincipleEditComponent },
-    ]),
+    { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: 'counter', component: CounterComponent },
+    { path: 'fetch-data', component: FetchDataComponent },
+    { path: 'quote-data', component: QuoteDataComponent },
+    { path: 'quote-data', component: PrincipleEditComponent },
+], { relativeLinkResolution: 'legacy' }),
 
     BrowserAnimationsModule,
     AngularMaterialModule,
