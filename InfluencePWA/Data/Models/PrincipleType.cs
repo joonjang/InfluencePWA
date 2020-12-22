@@ -33,7 +33,7 @@ namespace InfluencePWA.Data.Models
 
         #region Client-side properties
         /// <summary>
-        /// The number of cities related to this country.
+        /// The number of Principles related to this PrincipleType.
         /// </summary>
         [NotMapped]
         public int TotPrinciple

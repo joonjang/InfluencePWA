@@ -29,8 +29,8 @@ namespace InfluencePWA
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            //// Add EntityFramework support for SqlServer.
-            //services.AddEntityFrameworkSqlServer();
+            // Add EntityFramework support for SqlServer.
+            services.AddEntityFrameworkSqlServer();
 
             // Add ApplicationDbContext.
             services.AddDbContext<ApplicationDbContext>(options =>

@@ -18,13 +18,14 @@ import { ApiResult } from '../base.service';
 export class QuoteDataComponent {
   public displayedColumns: string[] = ['id', 'law', 'title', 'description', 'principleType'];
   public principles: MatTableDataSource<Principle>;
+  //public principles: Principles[];
 
   defaultPageIndex: number = 0;
   defaultPageSize: number = 10;
-  public defaultSortColumn: string = "name";
+  public defaultSortColumn: string = "id";
   public defaultSortOrder: string = "asc";
 
-  defaultFilterColumn: string = "name";
+  defaultFilterColumn: string = "id";
   filterQuery: string = null;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -66,7 +67,7 @@ export class QuoteDataComponent {
       ? this.filterQuery
       : null;
 
-    this.principleService.getData < ApiResult < Principle>>(
+    this.principleService.getData<ApiResult<Principle>>(
       event.pageIndex,
       event.pageSize,
       sortColumn,
