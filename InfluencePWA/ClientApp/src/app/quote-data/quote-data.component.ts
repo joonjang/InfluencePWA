@@ -16,7 +16,7 @@ import { ApiResult } from '../base.service';
   styleUrls: ['./quote-data.component.css']
 })
 export class QuoteDataComponent {
-  public displayedColumns: string[] = ['id', 'law', 'title', 'description', 'principleType'];
+  public displayedColumns: string[] = ['id', 'law', 'title', 'description', 'principleTypeName'];
   public principles: MatTableDataSource<Principle>;
   //public principles: Principles[];
 

@@ -4,4 +4,5 @@ export interface Principle {
   title: string;
   description: string;
   principleTypeId: number;
+  principleTypeName: string;
 }

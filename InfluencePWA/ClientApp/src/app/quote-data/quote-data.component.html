@@ -1,24 +1,67 @@
-<h1>Principles for Influence</h1>
+﻿<h1>Principles for Influence</h1>
 
 <p>List of principles to be an influential person</p>
 
 <p *ngIf="!principles"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" [hidden]="!principles">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Law</th>
-      <th>Title</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let principle of principles">
-      <td>{{ principle.id }}</td>
-      <td>{{ principle.law }}</td>
-      <td>{{ principle.title }}</td>
-      <td>{{ principle.description }}</td>
-    </tr>
-  </tbody>
+<div class="commands text-right" *ngIf="principles">
+  <button type="button"
+          [routerLink]="['/principle']"
+          class="btn btn-success">
+    Add a new Principle
+  </button>
+</div>
+
+<mat-form-field [hidden]="!principles">
+  <input matInput (keyup)="loadData($event.target.value)"
+         placeholder="Filter by name (or part of it)...">
+</mat-form-field>
+
+<table mat-table [dataSource]="principles" class="mat-elevation-z8" [hidden]="!principles"
+       matSort (matSortChange)="loadData()"
+       matSortActive="{{defaultSortColumn}}" matSortDirection="{{defaultSortOrder}}">
+
+  <!-- Id Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+    <td mat-cell *matCellDef="let principle"> {{principle.id}} </td>
+  </ng-container>
+
+  <!-- Law Column -->
+  <ng-container matColumnDef="law">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Principle</th>
+    <td mat-cell *matCellDef="let principle">
+      <a [routerLink]="['/principle', principle.id]">{{principle.law}}</a>
+    </td>
+  </ng-container>
+
+  <!-- Title Column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+    <td mat-cell *matCellDef="let principle"> {{principle.title}} </td>
+  </ng-container>
+
+  <!-- Description Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+    <td mat-cell *matCellDef="let principle"> {{principle.description}} </td>
+  </ng-container>
+
+  <!-- PrincipleTypeName Column -->
+  <ng-container matColumnDef="principleTypeName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+    <td mat-cell *matCellDef="let principle">
+      <a [routerLink]="['/principle', principle.principleTypeId]">{{principle.principleTypeName}}</a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+﻿
+<!-- Pagination directive -->
+<mat-paginator [hidden]="!principles"
+               (page)="getData($event)"
+               [pageSize]="10"
+               [pageSizeOptions]="[10, 20, 50]"
+               showFirstLastButtons></mat-paginator>
