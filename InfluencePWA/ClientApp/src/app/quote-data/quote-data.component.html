@@ -22,10 +22,10 @@
        matSortActive="{{defaultSortColumn}}" matSortDirection="{{defaultSortOrder}}">
 
   <!-- Id Column -->
-  <ng-container matColumnDef="id">
+  <!--<ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
     <td mat-cell *matCellDef="let principle"> {{principle.id}} </td>
-  </ng-container>
+  </ng-container>-->
 
   <!-- Law Column -->
   <ng-container matColumnDef="law">
@@ -50,9 +50,7 @@
   <!-- PrincipleTypeName Column -->
   <ng-container matColumnDef="principleTypeName">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
-    <td mat-cell *matCellDef="let principle">
-      <a [routerLink]="['/principle', principle.principleTypeId]">{{principle.principleTypeName}}</a>
-    </td>
+    <td mat-cell *matCellDef="let principle">{{principle.principleTypeName}}</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
