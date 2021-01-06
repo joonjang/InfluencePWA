@@ -51,9 +51,14 @@ export class PrincipleService
   post<Principle>(item): Observable<Principle> {
       var url = this.baseUrl + "api/Principles";
     return this.http.post<Principle>(url, item);
-    }
+  }
 
-    getPrincipleTypes<ApiResult>(
+  getPrincipleType<PrincipleType>(id): Observable<PrincipleType> {
+    var url = this.baseUrl + "api/PrincipleTypes/" + id;
+    return this.http.get<PrincipleType>(url);
+  }
+
+  getPrincipleTypes<ApiResult>(
         pageIndex: number,
         pageSize: number,
         sortColumn: string,

@@ -11,7 +11,7 @@ import { ApiResult } from '../base.service';
 })
 export class HomeComponent {
 
-  public principle: Principle = { id: 0, law: 'Test1', title: 'test2', description: 'test3', principleTypeId: 0, principleTypeName: 'test4' } ;
+  public principle: Principle = { id: 0, law: 'default', title: 'default', description: 'default', principleTypeId: 0, principleTypeName: 'default' } ;
 
   // Activity Log (for debugging purposes)
   activityLog: string = '';
@@ -40,11 +40,15 @@ export class HomeComponent {
   getData() {
 
     this.principleService.get<Principle>(1).subscribe(result => {
-      this.principle.principleTypeName = result.principleTypeName;
+      this.principle.principleTypeId = result.principleTypeId;
       this.principle.law = result.law;
       this.principle.title = result.title;
       this.principle.description = result.description;
+      this.principleService.getPrincipleType<PrincipleType>(1).subscribe(result2 => {
+        this.principle.principleTypeName = result2.name;
+      }, error => console.error(error));
     }, error => console.error(error));
+    
   }
   //  Data<ApiResult<Principle>>()
   //    .subscribe(result => {
