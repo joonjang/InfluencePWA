@@ -21,7 +21,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -51,7 +52,9 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
@@ -85,7 +88,8 @@
             ],
             "scripts": [],
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ]
           }
         },
@@ -150,5 +154,8 @@
       }
     }
   },
-  "defaultProject": "InfluencePWA"
+  "defaultProject": "InfluencePWA",
+  "cli": {
+    "analytics": "076c8a01-0d7c-48e8-986b-f468c5624654"
+  }
 }

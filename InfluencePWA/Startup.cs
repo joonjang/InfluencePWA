@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace InfluencePWA
 {
@@ -55,10 +56,22 @@ namespace InfluencePWA
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+
+            // add .webmanifest MIME-type support
+            FileExtensionContentTypeProvider provider = new FileExtensionContentTypeProvider();
+            provider.Mappings[".webmanifest"] = "application/manifest+json";
+
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                ContentTypeProvider = provider,
+            });
+
             if (!env.IsDevelopment())
             {
-                app.UseSpaStaticFiles();
+                app.UseSpaStaticFiles(new StaticFileOptions()
+                {
+                    ContentTypeProvider = provider
+                });
             }
 
             app.UseRouting();

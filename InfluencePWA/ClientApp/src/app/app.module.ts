@@ -15,6 +15,8 @@ import { PrincipleEditComponent } from './quote-data/principle-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     AngularMaterialModule,
     ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
