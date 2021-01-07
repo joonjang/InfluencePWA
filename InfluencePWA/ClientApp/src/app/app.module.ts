@@ -40,12 +40,17 @@ import { environment } from '../environments/environment';
     { path: 'fetch-data', component: FetchDataComponent },
     { path: 'quote-data', component: QuoteDataComponent },
     { path: 'quote-data', component: PrincipleEditComponent },
-], { relativeLinkResolution: 'legacy' }),
+    ],
+      {
+        relativeLinkResolution: 'legacy'
+      }),
 
     BrowserAnimationsModule,
     AngularMaterialModule,
     ReactiveFormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register(
+      'ngsw-worker.js',
+      { registrationStrategy: 'registerImmediately' })
   ],
   providers: [],
   bootstrap: [AppComponent]
