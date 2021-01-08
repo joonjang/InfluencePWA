@@ -59,9 +59,7 @@ namespace InfluencePWA.Data
             string filterColumn = null,
             string filterQuery = null)
         {
-            if (!String.IsNullOrEmpty(filterColumn)
-                && !String.IsNullOrEmpty(filterQuery)
-                && IsValidProperty(filterColumn))
+            if (!String.IsNullOrEmpty(filterColumn) && !String.IsNullOrEmpty(filterQuery) && IsValidProperty(filterColumn))
             {
                 source = source.Where(
                     String.Format("{0}.Contains(@0)",

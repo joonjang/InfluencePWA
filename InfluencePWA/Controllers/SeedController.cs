@@ -55,11 +55,11 @@ namespace InfluencePWA.Controllers
                     var lstPrincipleTypes = _context.PrincipleTypes.ToList();
 
                     // iterates through all rows, skipping the first one
-                    for (int nRow = 2;
-                        nRow <= ws.Dimension.End.Row;
-                        nRow++)
+                    for (int nRow = 2; nRow <= ws.Dimension.End.Row; nRow++)
                     {
                         var row = ws.Cells[nRow, 1, nRow, ws.Dimension.End.Column];
+                        row.Style.WrapText = true;
+                        row.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Top;
                         var name = row[nRow, 4].GetValue<string>();
 
                         // Did we already create a PrincipleType with that name?
